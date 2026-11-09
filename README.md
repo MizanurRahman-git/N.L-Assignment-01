@@ -23,6 +23,3 @@ operations.</p>
 TypeScript and show how its type system helps make JavaScript code
 safer, clearer, and easier to maintain.</p>
 
-<h2> Author </h2>
-
-**Mizanur Rahman**
