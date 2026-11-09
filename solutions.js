@@ -43,4 +43,53 @@ const getPopularCourses = (courses, minStudents) => {
     }
     return result;
 };
+const pluckValues = (items, key) => {
+    let result = [];
+    for (const item of items) {
+        result.push(item[key]);
+    }
+    return result;
+};
+class Employee {
+    name;
+    baseSalary;
+    constructor(name, baseSalary) {
+        this.name = name;
+        this.baseSalary = baseSalary;
+    }
+    getDetails() {
+        return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
+    }
+}
+class Manager extends Employee {
+    department;
+    constructor(name, baseSalary, department) {
+        super(name, baseSalary);
+        this.department = department;
+    }
+    getRoleInfo() {
+        return `Manager of ${this.department}: ${this.name}`;
+    }
+}
+const validateAgeAsync = async (age) => {
+    try {
+        if (age < 18) {
+            throw new Error("Access Denied: Must be 18 or older");
+        }
+        const result = await new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Access Granted");
+            }, 1000);
+        });
+        return result;
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            throw error;
+        }
+        else {
+            throw new Error("Something Went Wrong");
+        }
+    }
+};
 export {};

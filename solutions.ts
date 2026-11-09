@@ -58,3 +58,61 @@ const getPopularCourses = (courses: Course[], minStudents: number) => {
   return result;
 };
 
+const pluckValues = <T, K extends keyof T>(items: T[], key: K): T[K][] => {
+  let result: T[K][] = [];
+
+  for (const item of items) {
+    result.push(item[key]);
+  }
+
+  return result;
+};
+
+class Employee {
+  protected name: string;
+  private baseSalary: number;
+
+  constructor(name: string, baseSalary: number) {
+    this.name = name;
+    this.baseSalary = baseSalary;
+  }
+
+  getDetails(): string {
+    return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
+  }
+}
+
+class Manager extends Employee {
+  private department: string;
+
+  constructor(name: string, baseSalary: number, department: string) {
+    super(name, baseSalary);
+    this.department = department;
+  }
+
+  getRoleInfo(): string {
+    return `Manager of ${this.department}: ${this.name}`;
+  }
+}
+
+const validateAgeAsync = async (age: number): Promise<string> => {
+  try {
+    if (age < 18) {
+      throw new Error("Access Denied: Must be 18 or older");
+    }
+
+    const result = await new Promise<string>((resolve) => {
+      setTimeout(() => {
+        resolve("Access Granted");
+      }, 1000);
+    });
+
+    return result;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw error;
+    } else {
+      throw new Error("Something Went Wrong");
+    }
+  }
+};
