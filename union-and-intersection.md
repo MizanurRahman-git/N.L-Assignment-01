@@ -4,7 +4,7 @@
 <p>In TypeScript, Union (|) and Intersection (&) are both important. A Union allows you to define multiple possible types for a variable, while an Intersection enables you to combine the properties of several types to create a new one. These two are often used together to store both common data and information specific to different roles.</p>
 
 
-<h3>Detailed Body Paragraphs with Code Examples:</h3>
+<h3>Detailed Code Examples:</h3>
 <p>Let’s consider a problem-solving scenario involving two types of users: Admin and Customer. Both will have an ID, name, and email, but the additional information will vary based on their respective roles.</p>
 <br>
 
